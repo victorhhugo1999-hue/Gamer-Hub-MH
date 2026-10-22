@@ -1,0 +1,185 @@
+{
+  "schema_version": "0.3",
+  "game": "Monster Hunter Rise + Sunbreak",
+  "data_status": "MIXED: sample entries are community-reference candidates and require validation before release",
+  "source_candidates": [
+    {
+      "name": "monster-hunter-DB",
+      "url": "https://github.com/CrimsonNynja/monster-hunter-DB",
+      "purpose": "Roster and basic monster metadata across games including Rise + Sunbreak",
+      "license_note": "Verify repository LICENSE and asset-specific rights before redistributing any data or images."
+    },
+    {
+      "name": "RiseDex",
+      "url": "https://github.com/Syizuril/RiseDex",
+      "purpose": "Community reference for Rise/Sunbreak monster weaknesses and hitzone-related information",
+      "license_note": "Repository describes fan-made offline app and cites MH Rise Monster Weakness v15.0.1; review full license and attribution requirements before reusing data."
+    },
+    {
+      "name": "MHRise-Database",
+      "url": "https://github.com/RoboMechE/MHRise-Database",
+      "purpose": "Community data lead for monster/weapon, hitzone, status and quest data",
+      "license_note": "Check upstream license, exact revision, and permitted redistribution before bundling."
+    }
+  ],
+  "monsters": [
+    {
+      "id": "rathian",
+      "name": "Rathian",
+      "game": "Monster Hunter Rise + Sunbreak",
+      "variant": "Base",
+      "element": "Fire",
+      "weaknesses": [
+        "Dragon"
+      ],
+      "parts": [
+        "Head",
+        "Back",
+        "Wings",
+        "Tail"
+      ],
+      "ailments": [
+        "Fireblight",
+        "Poison"
+      ],
+      "rare_materials": [
+        "Rathian Plate",
+        "Rathian Ruby",
+        "Rathian Mantle"
+      ],
+      "status": "COMMUNITY CANDIDATE — VERIFY",
+      "source": "https://github.com/DreadkingRathalos/MHRise-Sunbreak",
+      "note": "Elemental weakness list is simplified; verify exact hitzone values, break rewards, ranks, and variant differences."
+    },
+    {
+      "id": "rathalos",
+      "name": "Rathalos",
+      "game": "Monster Hunter Rise + Sunbreak",
+      "variant": "Base",
+      "element": "Fire",
+      "weaknesses": [
+        "Dragon"
+      ],
+      "parts": [
+        "Head",
+        "Back",
+        "Wings",
+        "Tail"
+      ],
+      "ailments": [
+        "Fireblight",
+        "Poison"
+      ],
+      "rare_materials": [
+        "Rathalos Plate",
+        "Rathalos Ruby",
+        "Rathalos Mantle"
+      ],
+      "status": "COMMUNITY CANDIDATE — VERIFY",
+      "source": "https://github.com/DreadkingRathalos/MHRise-Sunbreak",
+      "note": "Simplified summary only; exact elemental hitzones and rewards vary by rank/quest."
+    },
+    {
+      "id": "nargacuga",
+      "name": "Nargacuga",
+      "game": "Monster Hunter Rise + Sunbreak",
+      "variant": "Base",
+      "element": "None",
+      "weaknesses": [
+        "Thunder"
+      ],
+      "parts": [
+        "Head",
+        "Wings",
+        "Tail"
+      ],
+      "ailments": [],
+      "rare_materials": [
+        "Wyvern Gem",
+        "Large Wyvern Gem"
+      ],
+      "status": "COMMUNITY CANDIDATE — VERIFY",
+      "source": "https://github.com/DreadkingRathalos/MHRise-Sunbreak",
+      "note": "Verify material names and reward conditions for Low/High/Master Rank."
+    },
+    {
+      "id": "zinogre",
+      "name": "Zinogre",
+      "game": "Monster Hunter Rise + Sunbreak",
+      "variant": "Base",
+      "element": "Thunder",
+      "weaknesses": [
+        "Ice"
+      ],
+      "parts": [
+        "Head",
+        "Back",
+        "Legs",
+        "Tail"
+      ],
+      "ailments": [
+        "Thunderblight"
+      ],
+      "rare_materials": [
+        "Zinogre Plate",
+        "Zinogre Ruby",
+        "Zinogre Mantle"
+      ],
+      "status": "COMMUNITY CANDIDATE — VERIFY",
+      "source": "https://github.com/DreadkingRathalos/MHRise-Sunbreak",
+      "note": "Use rank-specific records for material drop rates; this entry is not a full reward table."
+    },
+    {
+      "id": "malzeno",
+      "name": "Malzeno",
+      "game": "Monster Hunter Rise + Sunbreak",
+      "variant": "Base",
+      "element": "Dragon",
+      "weaknesses": [
+        "Dragon"
+      ],
+      "parts": [
+        "Head",
+        "Wings",
+        "Tail"
+      ],
+      "ailments": [
+        "Bloodblight"
+      ],
+      "rare_materials": [
+        "Malzeno Bloodstone"
+      ],
+      "status": "COMMUNITY CANDIDATE — VERIFY",
+      "source": "https://github.com/DreadkingRathalos/MHRise-Sunbreak",
+      "note": "Base Malzeno only; do not reuse this entry for Primordial Malzeno."
+    }
+  ],
+  "recipes": [
+    {
+      "id": "recipe-example-001",
+      "name": "Exemplo — armadura de caçador",
+      "game": "Monster Hunter Rise + Sunbreak",
+      "equipment_type": "Armor",
+      "rank": "UNSPECIFIED",
+      "materials": [
+        {
+          "name": "Material A",
+          "quantity": 2
+        },
+        {
+          "name": "Material B",
+          "quantity": 1
+        }
+      ],
+      "status": "PROVISIONAL PLACEHOLDER",
+      "source": null,
+      "note": "Não é receita real do jogo. Substituir por uma receita verificada na forja ou fonte comunitária citada."
+    }
+  ],
+  "implementation_notes": {
+    "offline_strategy": "Bundle versioned JSON files in app assets; import to SQLite/Room or load as read-only catalog, with user builds and inventory stored locally.",
+    "api_strategy": "Do not require a live API for core browsing. Optional online refresh can fetch a community dataset only with explicit user action, version/hash tracking, validation, and fallback to bundled JSON.",
+    "licensing": "Monster Hunter is Capcom IP. Community repositories do not imply that official artwork or game assets may be redistributed. Audit licenses for code, datasets, and images separately. Prefer user-supplied/local images or original generic art if asset rights are unclear.",
+    "accuracy": "Monster weakness stars and hitzones can differ by body part, state, quest/rank and game version. Model weakness by element + part + condition instead of a single global weakness where data allows."
+  }
+}
